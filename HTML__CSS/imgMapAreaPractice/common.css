@@ -1,0 +1,30 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.con {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.con {
+    max-width: 800px;
+
+}
+.first {
+    border: 8px solid red;
+    width: 99%;
+    height: 900px;
+}
+
+
+.second {
+    border: 8px solid gold;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.first > .second > img {
+    width: 100%;
+}
