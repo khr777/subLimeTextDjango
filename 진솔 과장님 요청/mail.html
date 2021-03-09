@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- viewport : '반응형'이라는 의미-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="first">
+        <div class="second con">
+            <!-- 이미지맵 시작 -->
+            <img src="https://mail.google.com/mail/u/0?ui=2&ik=ed3b4d0103&attid=0.1&permmsgid=msg-a:r-4687380137152476711&th=178160dd296042b8&view=fimg&sz=s0-l75-ft&attbid=ANGjdJ_N0YrNnIFxI061Zovc2T62QYlYJQLmC_HSBxyznfJhkeN66T9jlJwV934-YRoNvmwHJBl6O2uhMIJ0H4aJBXxHr6g1gso2ftf4FhR32XuWzDMLSKvvAleY2g8&disp=emb&realattid=ii_km1qn1z80" usemap="#imgmap1"/>
+            <map  name="imgmap1">
+                <area shape="rect" coords="56,254,342,554" href="https://blog.naver.com/housepuzzle7/222229974546" target="_blank" />
+                <area shape="rect" coords="354,256,640,556" href="https://blog.naver.com/housepuzzle7/222212396614" target="_blank" />
+                <area shape="rect" coords="140,634,344,862" href="https://youtu.be/wgS_E2GDmAo" target="_blank" />
+                <area shape="rect" coords="360,636,564,864" href="https://youtu.be/ONrGBiGX7oU" target="_blank" />
+                <area shape="rect" coords="282,886,356,974" href="https://www.instagram.com/station.insight/" target="_blank" />
+                <area shape="rect" coords="360,886,442,974" href="https://www.facebook.com/station.insight" target="_blank" />
+                <area shape="rect" coords="446,886,520,974" href="https://pf.kakao.com/_xcyjjxb" target="_blank" />
+                <area shape="rect" coords="522,886,618,974" href="https://blog.naver.com/housepuzzle7" target="_blank" />
+                <area shape="rect" coords="620,886,696,974" href="https://www.youtube.com/channel/UCPCRFU5Dn29fqt1npDJFEpg/featured" target="_blank" />
+                <area shape="rect" coords="282,1066,380,1092" href="https://www.google.com" target="_blank" />
+                <area shape="rect" coords="484,1130,584,1156" href="https://www.naver.com" target="_blank" />
+                
+                
+            </map>
+            <!-- 이미지맵 끝 -->
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // rwdImageMaps로 이미지맵 동적 할당하도록 설정
+        $('img[usemap]').rwdImageMaps();
+    </script>
+
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.con {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.con {
+    max-width: 800px;
+
+}
+.first {
+    width: 99%;
+    height: 900px;
+}
+
+
+.second {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.first > .second > img {
+    width: 100%;
+}
+</style>
+
+</body>
+</html>
