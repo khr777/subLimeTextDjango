@@ -29,14 +29,17 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# 사이트를 좀 더 수월하게 만들 수 있도록 제공해주는 어플리케이션 
+# 우리가 만든 앱들을 여기에 입력해주어야 사용할 수 있다.
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin', # 관리용 사이트 
+    'django.contrib.auth', # 인증 시스템 
+    'django.contrib.contenttypes', # 컨텐츠 타입을 위한 프레임워크
+    'django.contrib.sessions', # 세션 프레임워크
+    'django.contrib.messages', # 메세징 관련 프레임워크
+    'django.contrib.staticfiles', # 정적 파일을 관리하기 위한 프레임워크 
+    # PollsConfig 클래스의 경로 표현을 유의해서 추가한다.
+    'polls.apps.PollsConfig'
 ]
 
 MIDDLEWARE = [
@@ -75,9 +78,7 @@ WSGI_APPLICATION = 'mysite1.wsgi.application'
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3', 'django.db.backends.postgresql', 
-        #'django.db.backends.mysql', 'django.db.backends.oracle'
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
