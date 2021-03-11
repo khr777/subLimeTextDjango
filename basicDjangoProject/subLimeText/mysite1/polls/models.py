@@ -46,3 +46,7 @@ class Choice(models.Model):
 # 원칙 : -가 붙으면 내림차순이 된다.
 # 예를 들어서 Quesction의 id 값을 기준으로 정렬하고 싶을 때 
 # Question.objects.order_by('-id') // 내림차순 // 출력해보고 기록해 놓기.
+# Question.objects.order_by('-id', aa) 만약 id가 중복일 경우에는, aa 오름차순으로 정렬한다. 
+# distinct() : 중복된 값을 하나로만 표시하기 위한 메서드 (동일한 이름이 2개일 경우, 1개만 표시하는) 
+# SQL의 SELECT DISTINCT와 같은 기능의 메소드 
+# rows = User.objects.distinct('name') 
