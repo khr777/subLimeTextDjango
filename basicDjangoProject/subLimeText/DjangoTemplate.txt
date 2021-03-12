@@ -1,0 +1,90 @@
+* 장고 템플릿(template) : 아주 중요한 장고의 핵심 기능 중에 하나이다. 
+
+[ 장고의 코어 템플릿 엔진 ]
+
+ㅁ DTL(Django Template Language) : 장고의 코어 템플릿 엔진 
+
+ㅁ 장고는 DTL 외에도 jinja라는 템플릿을 기본적으로 지원하고 있음. 
+
+ㅁ 이외에 다른 템플릿 엔진도 설치해서 사용할 수 있다.
+
+
+
+
+어떤 템플릿을 사용할지 설정을 해주어야 한다.
+
+[ 템플릿 엔진의 설정 ]
+
+ㅁ 템플릿 엔진의 설정은 프로젝트 생성시 startproject 명령에 의해서 작성되는 파일 중에 
+	settings.py에서 템플릿 설정을 할 수 있다. 
+
+
+
+
+** settings.py에 template 설정 부분
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+
+BACKEND : 사용할 템플릿 엔진을 지정 
+* 장고에서 기본적으로 제공하는 템플릿 엔진 2가지 
+	- 장고 자체 템플릿 엔진 : 
+	  django.template.backends.django.DjangoTemplates
+
+	- Jinja2 템플릿 엔진 : 파이썬 언어의 대표적인 템플릿 엔진 
+	  라이브러리만 설치해주면 사용할 수 있다.
+	  플라스크 웹 프레임워크는 Jinja2 템플릿 엔진을 사용하고 있다.
+	  해당 시스템에 Jinja2 라이브러리만 설치 되어 있으면, 장고가 제공하는 설정이나 
+	  API 등을 사용할 수 있다.
+	  django.template.backends.jinja2.Jinja2
+
+
+DIRS : 프로젝트의 템플릿 파일이 위치한 디렉토리를 지정해주는 항목 
+ 	    지정하는 방법은 나중에 다시 설명하겠다. 
+
+APP_DIRS : 앱의 템플릿 디렉토리에서 파일을 찾을지의 여부.
+			프로젝트 내의 디렉토리 뿐만 아니라 앱에 별도로 만들어놓은 템플릿 디렉토리에서도 파일을 찾을지 묻는. 
+			디폴트는 False 이지만 startproject 명령에 의해서 settings.py 파일이 만들어질 때 True로 설정이 된다. 
+
+			* 순서 : DIRS를 찾고 APP_DIRS를 찾는 방식. 
+
+OPTIONS : 템플릿 엔진에 따라서 해당하는 옵션들을 설정하는 항목이다.
+
+  		 [ 장고 템플릿 엔진을 사용하는 경우의 옵션 항목 ] 
+
+  		 - context_processors : 웹 요청에 들어있는 파라미터들(request)을 인자로 받아서 컨텍스트 데이터로 사용될 dict을 만들어주는 
+  		 호출 가능한 객체를 지정한다. 디폴트는 비어있는 리스트 
+  		  (요청할 때 각각의 request들을 인자로 받아서 context data로 사용하게 되는데 이 때 사용될 딕셔너리 타입의 호출가능한 객체를 
+  		  지정해주는 역할을 한다.)
+
+  		 - debug : 템플릿의 디버그 모드를 설정해주는 역할. True로 설정하면 템플릿을 렌더링 하는 과정에서 에러가 발생하면 
+  		 			템플릿 파일 내에서 에러가 발생한 라인을 다른 색으로 표시해준다. 
+
+		 - loaders : 템플릿 로더 클래스를 지정한다. 로더는 템플릿 파일을 찾아서 메모리에 로딩하는 역할을 수행한다. 
+
+		 - string_if_invalid : template 변수가 잘못됐을 경우에, 대신 사용할 문자열을 지정.
+		 						디폴트는 공백 문자열. 
+		 - file_charset : template 파일을 읽어 디코딩할 때 사용하는 문자셋을 지정
+		 					
+
+
+
+
+
+
+
+
