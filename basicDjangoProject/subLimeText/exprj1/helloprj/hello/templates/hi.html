@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %} HI 페이지 {% endblock %}
+
+
+{% block content %}
+	Hello World ! <p>오늘은 {{ today }} 입니다.</p>
+
+	{% if today.day == 1 %}
+		<h1>이달의 첫번째 날 입니다.</h1>
+	{% elif today.day == 30 %}
+		<h1>이달의 마지막 날 입니다.</h1>
+	{% else %}
+		<strong>오늘은 이달의 몇번째 날일까요?</strong>
+	{% endif %}
+
+	{% for day in daysOfWeek %}
+		<h1>
+			{{ day }}
+		</h1>
+	{% endfor %}
+
+{% endblock %}
+
+

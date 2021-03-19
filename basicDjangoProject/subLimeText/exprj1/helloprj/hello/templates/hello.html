@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+	<head>
+		<title>템플릿 연습</title>
+	</head>
+	<body>
+		Hello World!! <p>오늘은 {{ today }} 입니다. </p>
+		{% if today.day == 1 %}
+		이번달의 첫날입니다.
+		{% elif today.day == 30 %}
+		이번달의 마지막 날입니다.
+		{% else %}
+		무슨날일까요?
+		{% endif %}
+
+
+		<p>
+			{% for day in daysOfWeek %}
+			{{ day }}
+		</p>
+		{% endfor %}
+	</body>
+</html>
