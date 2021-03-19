@@ -1,0 +1,23 @@
+<!-- 부모 파일 : 기본 파일 -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset = "utf-8"> 
+		<title>{% block title %} Base 페이지 {% endblock %}</title>
+	</head>
+	<body>
+		<div id="sidebar">
+			{% block sidebar %}
+			<ul>
+				<li><a href="#">질문선택</a></li>
+				<li><a href="#">투표결과</a></li>
+			</ul>
+			{% endblock %}
+		</div>
+		<div id="content">
+			{% block content %}
+				base content
+			{% endblock %}
+		</div>
+	</body>
+</html>
