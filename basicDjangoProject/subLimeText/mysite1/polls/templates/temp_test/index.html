@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} 설문 조사 {% endblock %}
+{% block content %}
+<div class="container">
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<td><b>질문</b></td>
+				<td><b>날짜/시간</b></td>
+			</tr>
+		</thead>
+		<tbody>
+			{% for question in questions %}
+				<tr>
+					<td>{{ question.question_txt }}</td>
+					<td>{{ question.pub_date }}</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}
+

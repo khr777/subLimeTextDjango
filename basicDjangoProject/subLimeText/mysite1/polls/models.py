@@ -47,6 +47,47 @@ class Choice(models.Model):
 # 예를 들어서 Quesction의 id 값을 기준으로 정렬하고 싶을 때 
 # Question.objects.order_by('-id') // 내림차순 // 출력해보고 기록해 놓기.
 # Question.objects.order_by('-id', aa) 만약 id가 중복일 경우에는, aa 오름차순으로 정렬한다. 
+
+
 # distinct() : 중복된 값을 하나로만 표시하기 위한 메서드 (동일한 이름이 2개일 경우, 1개만 표시하는) 
 # SQL의 SELECT DISTINCT와 같은 기능의 메소드 
-# rows = User.objects.distinct('name') 
+# rows = User.objects.distinct('name') // 중복되는 이름이 있을 경우, 이름 1개만 
+# first() : 여러개의 데이터 중에서 처음에 있는 row만을 리턴한다. 
+# first() 함수 예시 __ rows = User.objects.order_by('name').first() 
+# 위의 결과는 정렬된 레코드(row)중에서 가장 첫번째 row가 리턴값이 된다. // 직접 출력해보기. 
+# last() : 여러개의 데이터 중에서 마지막 row만을 리턴한다.
+# row = Question.objects.order_by('-id').last() // 직접 출력해보기.
+
+## 위의 메소드들은 실제 데이터 결과를 직접 리턴하기보다는 쿼리 표현식(QuerySet) 형태로 리턴한다. 
+# 여러개의 메소드들을 계속해서 연결식으로 형태로 사용할 수 있다.(체인처럼 연결해서 사용할 수 있다는 의미)
+# 따라서, 여러 메소드들을 체인처럼 연결해서 사용할 수 있다.
+
+## row = User.objects.filter(name = 'Lee').order_by('-id').first() -> 위의 의미.
+
+## 예제 시작 
+# from django.utils import timezone
+# current_year = timezone.now().year
+# current_year 출력 : 2021 
+# Question.objects.filter(pub_date__year = currernt_year).order_by('-id').last()
+
+
+
+# update : 수정할 row 객체를 얻은 후에 변경할 필드를 수정한다. 
+# 수정한 후에는 save() 메소드를 호출한다.
+# SQL UPDATE가 실행되어 테이블에 데이터가 갱신된다. 
+# 예제
+# q = Question.objects.get(pk = 1)
+# q.question_txt 
+# 출력 : '뭘 좋아하시나요?'
+# q.question_txt = "무슨 영화를 좋아하시나요?"
+# q.save()
+# q.question_txt 
+# 출력 : '무슨 영화를 좋아하시나요?'
+# Question.objects.all()
+# 출력 : <QuerySet [<Question: 무슨 영화를 좋아하시나요?>, <Question: 좋아하시는 음식은?>, <Question: 어떤 스포츠를 좋아하니?>]>
+# Tip : q.save()를 해주지 않으면 all() 코드를 실행시키면 데이터베이스의 데이터가 변경되지 않은 채로 출력된다. 
+
+
+# delete : ROW의 객체를 얻은 후에 delete() 메소드를 호출한다. 
+# save()를 할 필요가 없다. delete 메소드에 의해서 바로 데이터베이스의 레코드(row)가 삭제된다. 
+
